@@ -14,15 +14,13 @@ const QUERY = gql`
 
 export default () => {
 
-  const { data } = useQuery(QUERY)
-
-  console.log('check data', data)
+  const { data: { isLoggedIn } } = useQuery(QUERY)
 
   return (
     <ThemeProvider theme={Theme}>
       <>
         <GlobalStyles />
-        <Router isLoggedIn={false} />
+        <Router isLoggedIn={isLoggedIn} />
       </>
     </ThemeProvider>
   )
