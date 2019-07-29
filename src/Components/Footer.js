@@ -8,6 +8,7 @@ import styled from "styled-components";
   text-transform: uppercase;
   font-weight: 600;
   font-size: 12px;
+  margin: 50px 0;
 `;
 
  const List = styled.ul`
