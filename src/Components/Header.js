@@ -20,6 +20,7 @@ import { Logo, Compass, HeartEmpty, User } from "./Icons";
   justify-content: center;
   align-items: center;
   padding: 25px 0px;
+  z-index: 2;
 `;
 
  const HeaderWrapper = styled.div`
@@ -74,7 +75,6 @@ const ME = gql`
  export default withRouter(( { history }) => {
   const search = useInput("");
   const { data } = useQuery(ME);
-  console.log(data);
   const onSearchSubmit = (e) => {
     e.preventDefault()
     history.push(`search?term=${search.value}`)
