@@ -12,8 +12,9 @@ const Container = styled.input`
   padding: 0px 15px;
 `;
 
-const Input = ({ placeholder, required, value, onChange, type="text" }) => (
+const Input = ({ placeholder, className, required, value, onChange, type="text" }) => (
   <Container placeholder={placeholder}
+             className={className}
              required={required}  
              value={value}
              onChange={onChange}
