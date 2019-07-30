@@ -17,13 +17,29 @@ const GET_USER = gql`
       followingCount
       followersCount
       postsCount
-      posts {
+      posts { 
         id
         files {
+          id
           url
         }
+        caption
+        createdAt
+        isLiked
         likeCount
+        comments {
+          id
+          text
+          user {
+            id
+            username
+          }
+        }
         commentCount
+        user {
+          id
+          username
+        }
       }
     }
   }

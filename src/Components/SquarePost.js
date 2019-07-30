@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { HeartFull, CommentFull } from "./Icons";
+import PostModal from "./PostModal"
 
  const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
@@ -42,8 +43,19 @@ import { HeartFull, CommentFull } from "./Icons";
   font-size: 16px;
 `;
 
- const SquarePost = ({ likeCount, commentCount, file }) => (
-  <Container bg={file.url}>
+const SquarePost = ({ likeCount, commentCount, file, post }) => {
+  const [showModal, setShowModal] = useState(false)
+
+  const toggleModal = () => {
+    if(showModal) {
+      setShowModal(false) 
+    } else {
+      setShowModal(true)
+    }
+  }
+
+  return (
+  <Container bg={file.url} onClick={toggleModal}>
     <Overlay>
       <Number>
         <HeartFull />
@@ -54,8 +66,12 @@ import { HeartFull, CommentFull } from "./Icons";
         <NumberText>{commentCount}</NumberText>
       </Number>
     </Overlay>
+    {showModal && (
+      <PostModal post={post} open={showModal} toggleModal={toggleModal} />
+    )}
   </Container>
-);
+  )
+}
 
  SquarePost.propTypes = {
   likeCount: PropTypes.number.isRequired,

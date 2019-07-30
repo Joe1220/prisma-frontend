@@ -57,6 +57,7 @@ const Posts = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 200px);
   grid-template-rows: 200px;
+  grid-gap: 20px;
   grid-auto-rows: 200px;
 `;
 
@@ -124,6 +125,7 @@ export default ({ loading, data, logOut }) => {
                 likeCount={post.likeCount}
                 commentCount={post.commentCount}
                 file={post.files[0]}
+                post={post}
               />
             ))}
         </Posts>
