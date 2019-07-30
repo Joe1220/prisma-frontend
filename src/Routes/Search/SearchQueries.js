@@ -7,6 +7,7 @@ import { gql } from "apollo-boost";
         url
       }
       likeCount
+      commentCount
     }
     searchUser(term: $term) {
       avatar
