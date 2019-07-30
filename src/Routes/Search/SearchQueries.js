@@ -13,6 +13,7 @@ import { gql } from "apollo-boost";
       username
       isFollowing
       isSelf
+      id
     }
   }
 `;
